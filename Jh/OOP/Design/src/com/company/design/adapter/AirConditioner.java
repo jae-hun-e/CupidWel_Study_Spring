@@ -1,8 +1,8 @@
 package com.company.design.adapter;
 
-public class AirConditioner implements Electronic110v{
+public class AirConditioner implements Electronic220v{
     @Override
-    public void poverOn() {
+    public void connect() {
         System.out.println("에어컨 220v on");
     }
 }
