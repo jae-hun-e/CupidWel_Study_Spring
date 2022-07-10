@@ -3,6 +3,8 @@ package com.company.design;
 import com.company.design.adapter.*;
 import com.company.design.aop.AopBrowser;
 import com.company.design.decorator.*;
+import com.company.design.observer.Button;
+import com.company.design.observer.IButtonListener;
 import com.company.design.proxy.Browser;
 import com.company.design.proxy.BrowserProxy;
 import com.company.design.proxy.IBrowser;
@@ -105,16 +107,28 @@ AtomicLong start = new AtomicLong();
 
          */
 
+//        observer 예제
+        Button button = new Button("버튼");
 
+        // 익명 class로 전달
+        button.addListener(new IButtonListener() {
+            @Override
+            public void clickEvent(String event) {
+                System.out.println(event);
+            }
+        });
+        button.click("메세지 전달 : click1");
+        button.click("메세지 전달 : click2");
+        button.click("메세지 전달 : click3");
+        button.click("메세지 전달 : click4");
 
     }
 
 
-/*
+
     // 콘센트-110v
     public static void connect(Electronic110v electronic110v){
         electronic110v.powerOn();
     }
 
-*/
 }
