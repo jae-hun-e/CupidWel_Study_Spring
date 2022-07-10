@@ -12,6 +12,7 @@ public class BrowserProxy implements IBrowser{
     @Override
     public Html show() {
 
+        // cache기능을 추가한다면 이런식으로 넣어서 메모리에 넣어준다.
         if( html == null){
             this.html = new Html(url);
             System.out.println("BrowserProxy loading html from : "+ url);
