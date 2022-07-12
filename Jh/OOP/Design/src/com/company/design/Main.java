@@ -15,6 +15,7 @@ import com.company.design.proxy.IBrowser;
 import com.company.design.singleton.AClass;
 import com.company.design.singleton.BClass;
 import com.company.design.singleton.SocketClient;
+import com.company.design.strategy.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -129,6 +130,7 @@ AtomicLong start = new AtomicLong();
          */
 
 //        Facade 예제
+        /*
         //기존 코드
         Ftp ftpClient = new Ftp("www.foo.co.kr", 22, "/home/etc");
         ftpClient.connect();
@@ -153,6 +155,34 @@ AtomicLong start = new AtomicLong();
         sftpClient.write();
         sftpClient.read();
         sftpClient.disConnect();
+        */
+
+//        strategy 예시
+        Encoder encoder = new Encoder(); // 사용하기 위한 기본 객체
+
+        // base64
+        EncodingStrategy base64 = new Base64Strategy(); // 전략
+
+        //normal
+        EncodingStrategy normal = new NomalStrategy(); // 전략
+
+        String message = "Hello 승동";
+
+        // 전략 셋팅(encoder에 base64사용)
+        encoder.setEncodingStrategy(base64);
+        String base64Result = encoder.getMessage(message);
+        System.out.println(base64Result);
+
+        // encoder에 normal사용
+        encoder.setEncodingStrategy(normal);
+        String normalResult = encoder.getMessage(message);
+        System.out.println(normalResult);
+
+        // encoder에 append사용
+        EncodingStrategy append = new AppendStrategy();
+        encoder.setEncodingStrategy(append);
+        String appendResult = encoder.getMessage(message);
+        System.out.println(appendResult);
 
     }
 
