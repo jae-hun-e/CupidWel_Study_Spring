@@ -37,21 +37,21 @@ public class Main {
 
 
 //        adapter 예제
-        /*
-        HairDryer hairDryer = new HairDryer(); // 110v
-        connect(hairDryer);
 
-        Cleaner cleaner = new Cleaner(); // 220v
-        // cleaner는 220v이고 connect는 110 이므로 변환(adapter)이 필요하다
-        //connect(cleaner);
+//        HairDryer hairDryer = new HairDryer(); // 110v
+//        connect(hairDryer);
+//
+//        Cleaner cleaner = new Cleaner(); // 220v
+//        // cleaner는 220v이고 connect는 110 이므로 변환(adapter)이 필요하다
+//        //connect(cleaner);
+//
+//        Electronic110v adapterCleaner = new SocketAdapter(cleaner); //220v 제품을 110v 에 넣어 변환시킨다.
+//        connect(adapterCleaner);
+//
+//        AirConditioner airConditioner = new AirConditioner(); //220v
+//        Electronic110v adapterToAirConditioner = new SocketAdapter(airConditioner);
+//        connect(adapterToAirConditioner); // 220v -> 110v
 
-        Electronic110v adapterCleaner = new SocketAdapter(cleaner); //220v 제품을 110v 에 넣어 변환시킨다.
-        connect(adapterCleaner);
-
-        AirConditioner airConditioner = new AirConditioner(); //220v
-        Electronic110v adapterToAirConditioner = new SocketAdapter(airConditioner);
-        connect(adapterToAirConditioner); // 220v -> 110v
-        */
 
 //        proxy 예제
         /*
@@ -94,23 +94,23 @@ AtomicLong start = new AtomicLong();
         */
 
 //        decorator 예제
-        /*
-        Icar audi = new Audi(1000);
-        audi.showPrice();
 
-        //a3
-        Icar audi3 = new A3(audi, "A3");
-        audi3.showPrice();
+//        Icar audi = new Audi(1000);
+//        audi.showPrice();
+//
+//        //a3
+//        Icar audi3 = new A3(audi, "A3");
+//        audi3.showPrice();
+//
+//        //a4
+//        Icar audi4 = new A4(audi, "A4");
+//        audi4.showPrice();
+//
+//        //a5
+//        Icar audi5 = new A5(audi, "A5");
+//        audi5.showPrice();
 
-        //a4
-        Icar audi4 = new A4(audi, "A4");
-        audi4.showPrice();
 
-        //a5
-        Icar audi5 = new A5(audi, "A5");
-        audi5.showPrice();
-
-         */
 
 //        observer 예제
         /*
@@ -158,6 +158,7 @@ AtomicLong start = new AtomicLong();
         */
 
 //        strategy 예시
+
         Encoder encoder = new Encoder(); // 사용하기 위한 기본 객체
 
         // base64
@@ -180,9 +181,12 @@ AtomicLong start = new AtomicLong();
 
         // encoder에 append사용
         EncodingStrategy append = new AppendStrategy();
+
         encoder.setEncodingStrategy(append);
         String appendResult = encoder.getMessage(message);
         System.out.println(appendResult);
+
+
 
     }
 
