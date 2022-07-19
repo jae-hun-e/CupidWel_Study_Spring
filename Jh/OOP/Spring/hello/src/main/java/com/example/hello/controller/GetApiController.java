@@ -1,5 +1,6 @@
 package com.example.hello.controller;
 
+import com.example.hello.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -61,6 +62,16 @@ public class GetApiController {
         System.out.println(age);
         return name + " "+ email + " " + age;
     }
+
+//    객체가 들어오게 되면 queryParam에 들어있는 주소들을 스프링부트에서 객체의 변수와 이름 매칭을 해준다. (검증도 필요하고 하므로 이렇게 객체를 만들어서 사용하는게 좋다)
+    @GetMapping("query-param03")
+    public String queryParam03(UserRequest userRequest){
+        System.out.println(userRequest.getName());
+        System.out.println(userRequest.getEmail());
+        System.out.println(userRequest.getAge());
+        return userRequest.toString();
+    }
+
 
 
 }
